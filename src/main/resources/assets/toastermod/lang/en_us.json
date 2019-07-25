@@ -1,0 +1,10 @@
+{
+	"block.toastermod.toaster": "Toaster",
+	"block.toastermod.lemon_battery_cobblestone": "Lemon Battery (Cobblestone)",
+	
+	"item.toastermod.bread_slice": "Slice of Bread",
+	"item.toastermod.toast_slice": "Slice of Toast",
+	"item.toastermod.toaster_sword": "Benjamin Franklin's Microwave of Excessive Voltage",
+	
+	"itemGroup.basicmod": "Basic Mod"
+}

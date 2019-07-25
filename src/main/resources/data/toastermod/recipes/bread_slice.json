@@ -1,0 +1,12 @@
+{
+    "type": "crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:bread"
+        }
+    ],
+    "result": {
+        "item": "toastermod:bread_slice",
+        "count": 4
+    }
+}

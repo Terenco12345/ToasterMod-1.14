@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+    "variants": {     		
+    		"status": {
+    			"0": { "model": "toastermod:block/toaster" },
+    			"1": { "model": "toastermod:block/toaster_one_bread" },
+    			"2": { "model": "toastermod:block/toaster_full_bread" },
+    			"3": { "model": "toastermod:block/toaster_toasting" },
+    			"4": { "model": "toastermod:block/toaster_toasted" }
+    		},
+    		
+    		"facing":{
+    			"north": {},
+        		"east": {"y": 90 },
+        		"south": {"y": 180 },
+        		"west": {"y": 270 }
+    		}
+    }
+}
