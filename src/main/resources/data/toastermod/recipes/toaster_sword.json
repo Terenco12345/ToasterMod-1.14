@@ -1,0 +1,27 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "T",
+        "D",
+        "S"
+    ],
+    "key": {
+        "T": {
+            "item": "toastermod:toaster"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "R": {
+        	"item": "minecraft:redstone"
+        },
+        "S": {
+        	"item": "minecraft:stick"
+        }
+        
+    },
+    "result": {
+    	"item": "toastermod:toaster_sword",
+    	"count": 1
+    }
+}

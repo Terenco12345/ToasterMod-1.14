@@ -15,7 +15,7 @@ public class ModTileEntities {
 	
 	// Fields to hold Tile Entities
 	@ObjectHolder(ToasterMod.MOD_ID+":toaster_tile_entity")
-	public static TileEntityType<TileEntityToaster> toaster_tile_entity;
+	public static final TileEntityType<TileEntityToaster> toaster_tile_entity = null;
 	
 	// Event to register all items
 	@SubscribeEvent

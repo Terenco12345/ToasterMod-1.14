@@ -3,6 +3,7 @@ package dev.cheesegr8er.toastermod.init;
 import dev.cheesegr8er.toastermod.ToasterMod;
 import dev.cheesegr8er.toastermod.item.ItemBreadSlice;
 import dev.cheesegr8er.toastermod.item.ItemToastSlice;
+import dev.cheesegr8er.toastermod.item.ItemToasterShoes;
 import dev.cheesegr8er.toastermod.item.ItemToasterSword;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ public class ModItems {
 	public static final ItemBreadSlice bread_slice = null;
 	public static final ItemToastSlice toast_slice = null;
 	public static final ItemToasterSword toaster_sword = null;
+	public static final ItemToasterShoes toaster_shoes = null;
 	
 	// Event to register all items
 	@SubscribeEvent
@@ -30,7 +32,8 @@ public class ModItems {
 		final Item[] items = {
 			new ItemBreadSlice().setRegistryName(new ResourceLocation(ToasterMod.MOD_ID+":bread_slice")),
 			new ItemToastSlice().setRegistryName(new ResourceLocation(ToasterMod.MOD_ID+":toast_slice")),
-			new ItemToasterSword().setRegistryName(new ResourceLocation(ToasterMod.MOD_ID+":toaster_sword"))
+			new ItemToasterSword().setRegistryName(new ResourceLocation(ToasterMod.MOD_ID+":toaster_sword")),
+			new ItemToasterShoes().setRegistryName(new ResourceLocation(ToasterMod.MOD_ID+":toaster_shoes"))
 		};
 
 		for (final Item item : items) {

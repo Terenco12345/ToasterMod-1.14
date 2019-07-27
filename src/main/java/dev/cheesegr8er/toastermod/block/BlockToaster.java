@@ -9,7 +9,9 @@ import dev.cheesegr8er.toastermod.init.ModItems;
 import dev.cheesegr8er.toastermod.tileentities.TileEntityToaster;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
@@ -38,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  * @author Terence
  */
-public class BlockToaster extends Block implements IForgeBlock{
+public class BlockToaster extends FallingBlock implements IForgeBlock{
 
 	public static final Direction[] HORIZONTAL_DIRECTIONS = new Direction[] {Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
 
@@ -75,7 +77,7 @@ public class BlockToaster extends Block implements IForgeBlock{
 	@Nullable
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader worldIn) {
-	    return new TileEntityToaster();
+		return new TileEntityToaster();
 	}
 
 	@Override
@@ -90,7 +92,7 @@ public class BlockToaster extends Block implements IForgeBlock{
 			drops.add(new ItemStack(ModItems.toast_slice, 1));
 		}
 		drops.add(new ItemStack(ModBlocks.toaster, 1));
-		
+
 		return drops;
 	}
 
@@ -125,7 +127,7 @@ public class BlockToaster extends Block implements IForgeBlock{
 	public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
 		TileEntityToaster tileEntity = (TileEntityToaster) worldIn.getTileEntity(pos);
 		int toasterStatus = worldIn.getBlockState(pos).get(STATUS);
-		
+
 		if(!worldIn.isRemote()) {
 			boolean playerHasBreadSlice = player.getHeldItemMainhand().getItem().getRegistryName().toString().equals("toastermod:bread_slice");	
 
@@ -168,5 +170,15 @@ public class BlockToaster extends Block implements IForgeBlock{
 
 			worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 		}
+	}
+
+	@Override
+	protected void onStartFalling(FallingBlockEntity fallingEntity) {
+		fallingEntity.setHurtEntities(true);
+	}
+
+	@Override
+	public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState) {
+		worldIn.playEvent(1031, pos, 0);
 	}
 }

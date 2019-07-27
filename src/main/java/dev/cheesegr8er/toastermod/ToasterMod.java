@@ -21,4 +21,5 @@ public class ToasterMod
     public ToasterMod() {
     	LOGGER.info("ToasterMod toasts their way in!");
     }
+    
 }
