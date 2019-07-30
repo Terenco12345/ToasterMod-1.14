@@ -1,0 +1,12 @@
+{
+  "toaster_up": {
+    "category": "block",
+    "subtitle": "subtitle.toaster_up",
+    "sounds": [ "toastermod:toaster_up" ]
+  },
+  "toaster_down": {
+    "category": "block",
+    "subtitle": "subtitle.toaster_down",
+    "sounds": [ "toastermod:toaster_down" ]
+  }
+}

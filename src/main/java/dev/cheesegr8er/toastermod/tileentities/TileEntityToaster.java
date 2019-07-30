@@ -1,10 +1,12 @@
 package dev.cheesegr8er.toastermod.tileentities;
 
 import dev.cheesegr8er.toastermod.block.BlockToaster;
+import dev.cheesegr8er.toastermod.init.ModSounds;
 import dev.cheesegr8er.toastermod.init.ModTileEntities;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.SoundCategory;
 
 public class TileEntityToaster extends TileEntity implements ITickableTileEntity{
 
@@ -64,5 +66,6 @@ public class TileEntityToaster extends TileEntity implements ITickableTileEntity
 	private void toastBread() {
 		this.getWorld().setBlockState(this.getPos(), this.getBlockState().with(BlockToaster.STATUS, 4));
 		System.out.println("Bread has been toasted!");
+		this.getWorld().playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSounds.toaster_up, SoundCategory.BLOCKS, 1.0f, 1.0f);
 	}
 }

@@ -6,9 +6,13 @@ import org.lwjgl.glfw.GLFW;
 
 import dev.cheesegr8er.toastermod.ToasterMod;
 import dev.cheesegr8er.toastermod.init.ModItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,13 +24,14 @@ public class ToasterShoeLogic {
 	
 	private static boolean toasterShoesEquipped = false;
 	private static boolean spacePressed = false;
-	private static final int JUMP_COOLDOWN_DEFAULT = 10;
+	private static final int JUMP_COOLDOWN_DEFAULT = 5;
 	private static int jumpCooldown = 2;
 	
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event) {
 		Random random = new Random();
 		
+		World world = event.player.world;
 		PlayerEntity player = event.player;
 		toasterShoesEquipped = false;
 		
@@ -39,13 +44,12 @@ public class ToasterShoeLogic {
 		
 		// Jump logic
 		if(toasterShoesEquipped && spacePressed && jumpCooldown <= 0 && !player.onGround) {
-			ToasterMod.LOGGER.info("TOASTER SHOES ARE JUMPING!");
 			player.jump();
 			player.fallDistance = 0;
 			
 			// Spawn four slices of toast upon jumping
 			for(int i = 0; i < 4; i++) {
-				player.world.addEntity(new ItemEntity(player.world, 
+				player.world.addEntity(new ItemEntity(world, 
 						(double)player.posX+(random.nextFloat()-0.5f), 
 						(double)player.posY-1.0, 
 						(double)player.posZ+(random.nextFloat()-0.5f), 
@@ -63,14 +67,10 @@ public class ToasterShoeLogic {
 	
 	@SubscribeEvent
 	public static void onKeyInput(KeyInputEvent event) {
-		System.out.println("Key input ticks!");
-		
 		if(event.getKey() == GLFW.GLFW_KEY_SPACE && event.getAction() == GLFW.GLFW_PRESS) {
 			spacePressed = true;
-			System.out.println("Space is pressed");
 		} else if (event.getKey() == GLFW.GLFW_KEY_SPACE && event.getAction() == GLFW.GLFW_RELEASE){
 			spacePressed = false;
-			System.out.println("Space is released");
 		}
 	}
 }

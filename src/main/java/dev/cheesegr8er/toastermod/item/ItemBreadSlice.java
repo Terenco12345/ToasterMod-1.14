@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 public class ItemBreadSlice extends Item{
 
 	public ItemBreadSlice() {
-		super(new Properties().group(ToasterMod.TOASTER_MOD_TAB).
+		super(new Properties().group(ToasterMod.setup.itemGroup).
 				food(new Food.Builder().
 				fastToEat().
 				hunger(3).

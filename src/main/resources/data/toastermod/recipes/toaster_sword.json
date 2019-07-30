@@ -12,9 +12,6 @@
         "D": {
             "item": "minecraft:diamond"
         },
-        "R": {
-        	"item": "minecraft:redstone"
-        },
         "S": {
         	"item": "minecraft:stick"
         }

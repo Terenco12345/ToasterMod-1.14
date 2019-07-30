@@ -4,8 +4,9 @@ import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.model.ModelBox;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 
-public class ModelToasterShoes extends BipedModel{
+public class ModelToasterShoes extends BipedModel<PlayerEntity>{
 
 	public final RendererModel group;
 	public float xOffset = 0.0f;
@@ -43,7 +44,7 @@ public class ModelToasterShoes extends BipedModel{
 		group.cubeList.add(new ModelBox(group, 0, 1, -1.0F+xOffset, 1.0F+yOffset, -8.0F, 2, 1, 1, 0.0F, false));
 	}
 
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(PlayerEntity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		group.render(f5);
 	}
 	

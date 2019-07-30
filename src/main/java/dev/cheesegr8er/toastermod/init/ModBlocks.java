@@ -41,7 +41,7 @@ public class ModBlocks {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		
 		final BlockItem[] blockItems = {
-			new BlockItem(toaster, new Properties().maxStackSize(1).group(ToasterMod.TOASTER_MOD_TAB)),
+			new BlockItem(toaster, new Properties().maxStackSize(1).group(ToasterMod.setup.itemGroup)),
 		};
 
 		for (final BlockItem itemBlock : blockItems) {

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import dev.cheesegr8er.toastermod.init.ModBlocks;
 import dev.cheesegr8er.toastermod.init.ModItems;
+import dev.cheesegr8er.toastermod.init.ModSounds;
 import dev.cheesegr8er.toastermod.tileentities.TileEntityToaster;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -23,6 +24,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -147,6 +149,7 @@ public class BlockToaster extends FallingBlock implements IForgeBlock{
 				// Set the toaster
 				worldIn.setBlockState(pos, state.with(STATUS, 3));
 				tileEntity.startTimer();
+				worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), ModSounds.toaster_down, SoundCategory.BLOCKS, 1.0f, 1.0f);
 			} else if(toasterStatus == 4) {
 				// Retreive the toast
 				worldIn.addEntity(new ItemEntity(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(ModItems.toast_slice,2)));
@@ -157,7 +160,7 @@ public class BlockToaster extends FallingBlock implements IForgeBlock{
 			return true;
 		}
 	}
-
+	
 	/**
 	 * Produce a toasting effect if the toaster is down.
 	 */

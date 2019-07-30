@@ -20,7 +20,7 @@ import net.minecraftforge.common.extensions.IForgeItem;
 public class ItemToasterShoes extends ArmorItem implements IForgeItem{
 
 	public ItemToasterShoes() {
-		super(ArmorMaterial.IRON, EquipmentSlotType.FEET, new Properties().group(ToasterMod.TOASTER_MOD_TAB));
+		super(ArmorMaterial.IRON, EquipmentSlotType.FEET, new Properties().group(ToasterMod.setup.itemGroup));
 	}
 
 	@Override

@@ -7,5 +7,8 @@
 	"item.toastermod.toaster_sword": "Benjamin Franklin's Health and Safety Rod",
 	"item.toastermod.toaster_shoes": "Toast Propelled Rocket Shoes",
 	
-	"itemGroup.basicmod": "Basic Mod"
+	"itemGroup.toasterMod": "Toaster Mod",
+	
+	"subtitle.toaster_up": "Toaster pops up",
+	"subtitle.toaster_up": "Toaster pressed down"
 }
