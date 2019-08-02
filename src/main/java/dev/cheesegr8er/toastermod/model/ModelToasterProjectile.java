@@ -22,7 +22,7 @@ public class ModelToasterProjectile extends Model{
 		textureHeight = 16;
 
 		group = new RendererModel(this);
-		group.setRotationPoint(-8.0F, 16.0F, 8.0F);
+		group.setRotationPoint(0.0F, 8.0F, 2.0F);
 		
 		// Toaster body
 		group.cubeList.add(new ModelBox(group, 0, 1, -4.0F+xOffset, 0.0F+yOffset, -7.0F, 8, 7, 2, 0.0F, false));

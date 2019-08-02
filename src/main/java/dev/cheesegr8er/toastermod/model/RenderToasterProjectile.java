@@ -15,7 +15,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class RenderToasterProjectile extends EntityRenderer<EntityToasterProjectile>{
 
 	public static final ResourceLocation texture = new ResourceLocation("minecraft:textures/block/iron_block.png");
-	public ModelToasterProjectile toaster_projectile = new ModelToasterProjectile(6.0f, 5.0f, 0.0f);
+	public ModelToasterProjectile toaster_projectile = new ModelToasterProjectile(0f, 0f, 0f);
 
 
 	public RenderToasterProjectile(EntityRendererManager renderManager) {
@@ -29,12 +29,9 @@ public class RenderToasterProjectile extends EntityRenderer<EntityToasterProject
 		this.bindEntityTexture(entity);
 		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.pushMatrix();
-		GlStateManager.disableLighting();
-		GlStateManager.translatef((float)x, (float)y, (float)z);
-		GlStateManager.rotatef(MathHelper.lerp(partialTicks, entity.prevRotationYaw, entity.rotationYaw) - 90.0F, 0.0F, 1.0F, 0.0F);
-		GlStateManager.rotatef(MathHelper.lerp(partialTicks, entity.prevRotationPitch, entity.rotationPitch), 0.0F, 0.0F, 1.0F);
-
-		toaster_projectile.render(1);
+		GlStateManager.translatef((float)x, (float)y-0.55f, (float)z);
+		
+		toaster_projectile.render(0.06f);
 
 		if (this.renderOutlines) {
 			GlStateManager.tearDownSolidRenderingTextureCombine();
@@ -42,9 +39,8 @@ public class RenderToasterProjectile extends EntityRenderer<EntityToasterProject
 		}
 
 		GlStateManager.disableRescaleNormal();
-		GlStateManager.enableLighting();
 		GlStateManager.popMatrix();
-		super.doRender(entity, x, y, z, entityYaw, partialTicks);
+		super.doRender(entity, x, y, z, 0, partialTicks);
 	}
 
 	@Override
