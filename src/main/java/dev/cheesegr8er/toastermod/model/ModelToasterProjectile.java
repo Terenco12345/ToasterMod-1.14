@@ -1,18 +1,18 @@
 package dev.cheesegr8er.toastermod.model;
 
-import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.Model;
 import net.minecraft.client.renderer.model.ModelBox;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
 
-public class ModelToasterShoes extends BipedModel<PlayerEntity>{
+public class ModelToasterProjectile extends Model{
 
 	public final RendererModel group;
 	public float xOffset = 0.0f;
 	public float yOffset = -8.0f;
 	public float zOffset = 0.0f;
 	
-	public ModelToasterShoes(float xOffset, float yOffset, float zOffset) {
+	public ModelToasterProjectile(float xOffset, float yOffset, float zOffset) {
 		
 		this.xOffset = xOffset;
 		this.yOffset = yOffset;
@@ -41,6 +41,10 @@ public class ModelToasterShoes extends BipedModel<PlayerEntity>{
 		
 		// Toaster switch
 		group.cubeList.add(new ModelBox(group, 0, 1, -1.0F+xOffset, 1.0F+yOffset, -8.0F, 2, 1, 1, 0.0F, false));
+	}
+
+	public void render(float scale) {
+		group.render(scale);
 	}
 	
 	public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {

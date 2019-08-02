@@ -4,9 +4,7 @@ import javax.annotation.Nullable;
 
 import dev.cheesegr8er.toastermod.ToasterMod;
 import dev.cheesegr8er.toastermod.init.ModModels;
-import dev.cheesegr8er.toastermod.model.ModelToasterShoes;
 import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;

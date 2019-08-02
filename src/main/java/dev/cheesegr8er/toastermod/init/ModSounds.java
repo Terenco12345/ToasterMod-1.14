@@ -1,7 +1,6 @@
 package dev.cheesegr8er.toastermod.init;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;;
 
 public class ModSounds {

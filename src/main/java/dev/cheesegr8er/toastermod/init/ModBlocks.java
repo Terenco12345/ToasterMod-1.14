@@ -33,6 +33,8 @@ public class ModBlocks {
 		for (final Block block : blocks) {
 			registry.register(block);
 		}
+		
+		System.out.println("Blocks registered!");
 	}
 	
 	// Event to register all blockitems
@@ -47,5 +49,7 @@ public class ModBlocks {
 		for (final BlockItem itemBlock : blockItems) {
 			registry.register(itemBlock.setRegistryName(itemBlock.getBlock().getRegistryName()));
 		}
+		
+		System.out.println("Items registered!");
 	}
 }

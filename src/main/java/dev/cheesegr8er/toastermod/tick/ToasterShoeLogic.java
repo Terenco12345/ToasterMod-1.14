@@ -6,13 +6,12 @@ import org.lwjgl.glfw.GLFW;
 
 import dev.cheesegr8er.toastermod.ToasterMod;
 import dev.cheesegr8er.toastermod.init.ModItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -42,8 +41,15 @@ public class ToasterShoeLogic {
 			}
 		}
 		
+		// Applying jump boost
+		if(toasterShoesEquipped) {
+			player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 5, 1, false, false, false));
+		} else {
+			player.clearActivePotions();
+		}
+		
 		// Jump logic
-		if(toasterShoesEquipped && spacePressed && jumpCooldown <= 0 && !player.onGround) {
+		if(toasterShoesEquipped && spacePressed && jumpCooldown <= 0) {
 			player.jump();
 			player.fallDistance = 0;
 			

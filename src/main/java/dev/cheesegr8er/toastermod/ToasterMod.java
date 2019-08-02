@@ -3,15 +3,20 @@ package dev.cheesegr8er.toastermod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import dev.cheesegr8er.toastermod.entities.EntityToasterProjectile;
+import dev.cheesegr8er.toastermod.init.ModNetwork;
+import dev.cheesegr8er.toastermod.model.RenderToasterProjectile;
 import dev.cheesegr8er.toastermod.proxy.ClientProxy;
 import dev.cheesegr8er.toastermod.proxy.IProxy;
 import dev.cheesegr8er.toastermod.proxy.ModSetup;
 import dev.cheesegr8er.toastermod.proxy.ServerProxy;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ToasterMod.MOD_ID)
@@ -22,6 +27,9 @@ public class ToasterMod
 	
 	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
     public static ModSetup setup = new ModSetup();
+    
+    public static final SimpleChannel network = ModNetwork.getNetworkChannel();
+    
     // Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
     
