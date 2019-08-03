@@ -1,16 +1,15 @@
 {
 	"block.toastermod.toaster": "Toaster",
-	"block.toastermod.lemon_battery_cobblestone": "Lemon Battery (Cobblestone)",
 	
 	"item.toastermod.bread_slice": "Slice of Bread",
 	"item.toastermod.toast_slice": "Slice of Toast",
 	"item.toastermod.toaster_sword": "Benjamin Franklin's Health and Safety Rod",
-	"item.toastermod.toaster_shoes": "Toast Propelled Rocket Shoes",
-	"item.toastermod.toaster_arrow": "Toaster Arrow",
-	"item.toastermod.toaster_launcher": "Toaster Bow",
+	"item.toastermod.toaster_shoes": "The Carbon Footprint",
+	"item.toastermod.toaster_arrow": "Toaster Bombs",
+	"item.toastermod.toaster_launcher": "T0457",
 	
 	"itemGroup.toaster_mod": "Toaster Mod",
 	
 	"subtitle.toaster_up": "Toaster pops up",
-	"subtitle.toaster_up": "Toaster pressed down"
+	"subtitle.toaster_down": "Toaster pressed down"
 }

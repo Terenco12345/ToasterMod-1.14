@@ -3,48 +3,27 @@ package dev.cheesegr8er.toastermod.model;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.model.Model;
 import net.minecraft.client.renderer.model.ModelBox;
-import net.minecraft.entity.Entity;
 
 public class ModelToasterProjectile extends Model{
 
-	public final RendererModel group;
-	public float xOffset = 0.0f;
-	public float yOffset = -8.0f;
-	public float zOffset = 0.0f;
-	
-	public ModelToasterProjectile(float xOffset, float yOffset, float zOffset) {
-		
-		this.xOffset = xOffset;
-		this.yOffset = yOffset;
-		this.zOffset = zOffset;
-		
-		textureWidth = 16;
-		textureHeight = 16;
+	private final RendererModel bone;
 
-		group = new RendererModel(this);
-		group.setRotationPoint(0.0F, 8.0F, 2.0F);
-		
-		// Toaster body
-		group.cubeList.add(new ModelBox(group, 0, 1, -4.0F+xOffset, 0.0F+yOffset, -7.0F, 8, 7, 2, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -4.0F+xOffset, 0.0F+yOffset, 4.0F, 8, 7, 2, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, 3.0F+xOffset, 0.0F+yOffset, -5.0F, 2, 7, 9, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -1.0F+xOffset, 0.0F+yOffset, -5.0F, 2, 7, 9, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -5.0F+xOffset, 0.0F+yOffset, -5.0F, 2, 7, 9, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -3.0F+xOffset, 6.0F+yOffset, -5.0F, 6, 1, 9, 0.0F, false));
-		
-		// Toaster base
-		group.cubeList.add(new ModelBox(group, 0, 1, 4.0F+xOffset, 8.0F+yOffset, 5.0F, 1, 1, 1, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, 4.0F+xOffset, 8.0F+yOffset, -7.0F, 1, 1, 1, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -5.0F+xOffset, 8.0F+yOffset, 5.0F, 1, 1, 1, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -5.0F+xOffset, 8.0F+yOffset, -7.0F, 1, 1, 1, 0.0F, false));
-		group.cubeList.add(new ModelBox(group, 0, 1, -5.0F+xOffset, 7.0F+yOffset, -7.0F, 10, 1, 13, 0.0F, false));
-		
-		// Toaster switch
-		group.cubeList.add(new ModelBox(group, 0, 1, -1.0F+xOffset, 1.0F+yOffset, -8.0F, 2, 1, 1, 0.0F, false));
+	public ModelToasterProjectile() {
+		textureWidth = 64;
+		textureHeight = 64;
+
+		bone = new RendererModel(this);
+		bone.setRotationPoint(0.0F, 20.5833F, 0.0F);
+		bone.cubeList.add(new ModelBox(bone, 20, 9, -4.0F, -3.5833F, -3.0F, 2, 6, 6, 0.0F, false));
+		bone.cubeList.add(new ModelBox(bone, 10, 15, -1.0F, -3.5833F, -3.0F, 2, 6, 6, 0.0F, false));
+		bone.cubeList.add(new ModelBox(bone, 0, 9, 2.0F, -3.5833F, -3.0F, 2, 6, 6, 0.0F, false));
+		bone.cubeList.add(new ModelBox(bone, 25, 26, -3.0F, -3.5833F, -4.0F, 6, 6, 1, 0.0F, false));
+		bone.cubeList.add(new ModelBox(bone, 24, 0, -3.0F, -3.5833F, 3.0F, 6, 6, 1, 0.0F, false));
+		bone.cubeList.add(new ModelBox(bone, 0, 0, -4.0F, 2.4167F, -4.0F, 8, 1, 8, 0.0F, false));
 	}
 
-	public void render(float scale) {
-		group.render(scale);
+	public void render(float f5) {
+		bone.render(f5);
 	}
 	
 	public void setRotationAngle(RendererModel modelRenderer, float x, float y, float z) {

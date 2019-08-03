@@ -46,7 +46,7 @@ public class ItemToasterLauncher extends BowItem{
 		if (entityLiving instanceof PlayerEntity) {
 			PlayerEntity playerentity = (PlayerEntity)entityLiving;
 			boolean flag = playerentity.abilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
-			ItemStack itemstack = playerentity.findAmmo(stack);
+			ItemStack itemstack = playerentity.func_213356_f(stack);
 
 			int i = this.getUseDuration(stack) - timeLeft;
 			i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, playerentity, i, !itemstack.isEmpty() || flag);

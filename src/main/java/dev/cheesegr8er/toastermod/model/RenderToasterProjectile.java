@@ -2,11 +2,11 @@ package dev.cheesegr8er.toastermod.model;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 
+import dev.cheesegr8er.toastermod.ToasterMod;
 import dev.cheesegr8er.toastermod.entities.EntityToasterProjectile;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -14,8 +14,8 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 @OnlyIn(Dist.CLIENT)
 public class RenderToasterProjectile extends EntityRenderer<EntityToasterProjectile>{
 
-	public static final ResourceLocation texture = new ResourceLocation("minecraft:textures/block/iron_block.png");
-	public ModelToasterProjectile toaster_projectile = new ModelToasterProjectile(0f, 0f, 0f);
+	public static final ResourceLocation texture = new ResourceLocation(ToasterMod.MOD_ID+":textures/entity/toaster_projectile.png");
+	public ModelToasterProjectile toaster_projectile = new ModelToasterProjectile();
 
 
 	public RenderToasterProjectile(EntityRendererManager renderManager) {
@@ -29,7 +29,7 @@ public class RenderToasterProjectile extends EntityRenderer<EntityToasterProject
 		this.bindEntityTexture(entity);
 		GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.pushMatrix();
-		GlStateManager.translatef((float)x, (float)y-0.55f, (float)z);
+		GlStateManager.translatef((float)x, (float)y-1.2f, (float)z);
 		
 		toaster_projectile.render(0.06f);
 
