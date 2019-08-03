@@ -2,6 +2,7 @@ package dev.cheesegr8er.toastermod.entities;
 
 import dev.cheesegr8er.toastermod.init.ModEntities;
 import dev.cheesegr8er.toastermod.init.ModItems;
+import dev.cheesegr8er.toastermod.tick.BombDetonateLogic;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.play.server.SSpawnObjectPacket;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -53,5 +55,18 @@ public class EntityToasterProjectile extends ArrowEntity{
 	@Override
 	public IPacket<?> createSpawnPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
+	}
+	
+	public void arrowExplode() {
+		System.out.println("Toaster bomb exploded!");
+		if(this.isAlive()) {
+			this.getEntityWorld().createExplosion(this, posX, posY, posZ, 3f, Explosion.Mode.DESTROY);
+			this.remove();
+		}
+	}
+	
+	public void addToBombList() {
+		BombDetonateLogic.allBombs.add(this);
+		System.out.println("Toaster bomb added to the bomb list.");
 	}
 }
